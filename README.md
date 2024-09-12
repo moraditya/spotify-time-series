@@ -2,7 +2,7 @@
 **by Aditya Mor**
 ---
 
-## Project Overview
+### Project Overview
 This project analyzes the key features that influence song popularity in the music industry, using historical data from Spotify, spanning from 1921 to 2020. The dataset includes approximately 170,000 songs with various attributes, ranging from quantifiable features like acousticness, duration, and loudness, to characteristics such as energy, valence, and a popularity score. The goal of this project is twofold: first, to identify the top 4 features that most strongly influence a song’s popularity, and second, to forecast their trends over the next 5-10 years. These insights will help music producers, labels, and streaming platforms make informed decisions about emerging music trends.
 
 To achieve this, I began by cleaning the dataset and enriching it with genre information, which I obtained using Spotify’s API to fetch genre details based on artist names. After performing exploratory data analysis (EDA), a Random Forest model, boosted with XGBoost, was used to identify the top 4 features that best classify a song’s popularity. These features were then subjected to time series forecasting to predict how they will evolve, providing industry stakeholders with insights into potential future trends.
@@ -23,7 +23,7 @@ This analysis can guide decisions on content creation, curation, and marketing s
 - [Contributing](#contributing)
 - [License](#licensing)
 ---
-## Installation
+### Installation
 To get started with this project, follow these steps:
 1. **Clone the repository:**
    '''bash
@@ -40,7 +40,7 @@ To get started with this project, follow these steps:
 Now, you're all set to explore the project!
 
 ---
-## Dataset and Spotify API Genre Fetch
+### Dataset and Spotify API Genre Fetch
 
 
 
