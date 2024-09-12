@@ -24,6 +24,24 @@ This analysis can guide decisions on content creation, curation, and marketing s
 - [License](#licensing)
 ---
 ## Installation
+To get started with this project, follow these steps:
+1. **Clone the repository:**
+   '''bash
+   git clone git@github.com:enter_your_username/spotify-time-series-forecasting.git
+   cd spotify-time-series-forecasting
+2. **Download Anaconda Entirely or Just Download Jupyter Notebook:**
+   Follow this link to download Anaconda distribution, which includes Jupyter Notebook:
+   https://www.anaconda.com/download/success
+3. **Launch Jupyter Notebook:**
+    Open the notebooks for data-fetching, data-analysis, and models.
+4. **Ensure API credentials:**
+   If you wish to use the Spotify-API-code.ipynb file to fetch the API genre information yourself, be sure to create your own spotify developer account to have Spotify's API access keys. If you wish to just use my keys, that is alright as well, but I think it's cooler to go through the experience of setting up your own developer account!
+
+Now, you're all set to explore the project!
+
+---
+## Dataset and Spotify API Genre Fetch
+
 
 
 
