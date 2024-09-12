@@ -15,7 +15,7 @@ This analysis can guide decisions on content creation, curation, and marketing s
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Installation](#installation)
-- [Dataset and Spotify API Genre Fetch](#dataset-,-data-fetch-,-spotify-api-genre-fetch)
+- [Dataset and Spotify API Genre Fetch](#dataset-data-fetch-spotify-api-genre-fetch)
 - [Exploratory Data Analysis and Model Preprocessing](#exploratory-data-analysis-and-model-preprocessing)
 - [Modeling](#modeling)
 - [Results](#results)
