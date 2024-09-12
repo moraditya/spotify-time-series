@@ -15,7 +15,7 @@ This analysis can guide decisions on content creation, curation, and marketing s
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Installation](#installation)
-- [Dataset and Spotify API Genre Fetch](#dataset-and-spotify-api-genre-fetch)
+- [Dataset and Spotify API Genre Fetch](#dataset-data-fetch-and-spotify-api-genre-fetch)
 - [Exploratory Data Analysis and Model Preprocessing](#exploratory-data-analysis-and-model-preprocessing)
 - [Modeling](#modeling)
 - [Results](#results)
@@ -40,7 +40,7 @@ To get started with this project, follow these steps:
 Now, you're all set to explore the project!
 
 ---
-### Dataset and Spotify API Genre Fetch
+### Dataset, Data fetch, Spotify API Genre Fetch
 
 **Dataset Dictionary:**
 1. acousticness: a confidence measure from 0 to 1 how acoustic a song is, with 1 indicating that a song is highly acoustic.
@@ -53,8 +53,44 @@ Now, you're all set to explore the project!
 8. instrumentalness: a measure that describes the instrumentalness of a song. Values closer to 0 indicate songs have vocals, and values near 1 indicate songs have no vocals, or that they are effectively instrumental in nature.
 9. key: estimated overall key of the track. Integers map to pitches using standard Pitch Class notation: 0 = C, 1 = C♯/D♭, 2 = D, etc. The value is -1 is no key was detected in the song.
 10. liveness: detects a presence of an audience in the recording of the song/track.
-11. name: name of the song/track.
-12. 
+11. loudness: metric of how loud a song/track is.
+12. mode: indicates the modality (major or minor) of a track, the type of scale from which its  melodic content is derived. Major is represented by 1 and minor is 0.
+13. 12. name: name of the song/track.
+14. popularity: a score that tracks how popular a song is, from 0 to 100.
+15. release_date: the date that the song/track was released.
+16. speechiness: metric that tracks the presence of spoken words in a song/track; podcasts, interviews, and such have higher values (closer to 1), and values in the middle (up, down, and around 0.5) describe tracks that contain songs and speech, and values close to or around 0 describe purely music.
+17. tempo: measures the beats per minute of a track/song.
+18. valence: measures the positivity described in a song/track, from  0 to 1.
+19. year: the year that the song/track was released.
+
+---
+
+**Data Fetch:**
+1. In this file, the data was loaded, and some initial EDA was done to check for nulls, the range of the year feature for modularity of the time series implementation later, and some summary statistics. The cleaned file was saved as a csv for loading into the API-genre-fetch file.
+
+---
+
+**Spotify API Genre Fetch:**
+1. There are two files in the data-fetching folder that relate to the API-genre fetch: 1 file that contains the code for your viewing/reusing, and 1 file that contains the output. The reason for two files is because when the code for fetching the genre information is run, the file becomes too large to view on github.
+2. If you intend on using this model for any purpose, be sure to download the spotify-api-run.ipynb file. Alternatively, if you just wish to see how I fetched the genre information using Spotify's API, you can view it in the spotify-api-code.ipynb file.
+
+ **How the Genre Information was Fetched:**
+1. Importing relevant libraries: pandas, numpy, matplotlib, seaborn, datetime, ConfigManager, logging, requests, base64, concurrent.features, limits, and sleep_and_retry were used.
+![api1](https://github.com/user-attachments/assets/a2d3004c-1f6e-49bd-bda3-f04a32376d7c)
+
+2. Load the dataset.
+3. Use ConfigManager() to increase the IOPub data rate limit to prevent the jupyter notebook from stopping output when it processes large volumes of data (170,000 rows are present in the dataset, and the API code has to fetch genres for each row, which might have mulitple artist names, so that can be a lot of requests being sent and lots of processing!) or handling frequent API rate limiting messages.
+4. Set up logging, created a dictionary (or cache) to store artist-genre mappings, and defined a function to get the API access token from Spotify.
+![api2](https://github.com/user-attachments/assets/ab998d26-8bff-45da-b013-1926ff705871)
+5. Defined a rate-limiting function that uses that API calls per second, and uses sleep_and_retry to retry the API request if rate limits are reached.
+![api3](https://github.com/user-attachments/assets/98cdf44b-83d9-4572-824f-e9572d0ab111)
+6. Defined two functions: one that fetches genre for an artist with caching to avoid redudant API calls, and one that ensures that the fetching for genres for a list of artists are done in parallel using caching and rate-limiting.
+7. Run the code!
+8. Ensure that empty lists in the genre feature are replaced by 'unknown'.
+9. Save the file for EDA!
+
+--- 
+
 
 
 
