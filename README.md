@@ -12,6 +12,7 @@ The project utilizes both statistical models (ARIMA/SARIMA) and deep learning mo
 This analysis can guide decisions on content creation, curation, and marketing strategies by identifying which features are likely to grow in popularity in the coming years.
 
 ---
-
+## Table of Contents
+- [Project Overview](#project-overview)
 
 
