@@ -42,6 +42,19 @@ Now, you're all set to explore the project!
 ---
 ### Dataset and Spotify API Genre Fetch
 
+**Dataset Dictionary:**
+1. acousticness: a confidence measure from 0 to 1 how acoustic a song is, with 1 indicating that a song is highly acoustic.
+2. artists: the name(s) of the artist(s) who wrote and/or sang the song.
+3. danceability: this feature describes how suitable a track is for dancing based on a combination of musical elements. A score of 0 is least danceable and a score of 1 is most danceable.
+4. duration_ms: the duration of the song/track in milliseconds.
+5. energy: a confidence measure from 0 to 1, which represents how intense and energetic a song is, or how fast, loud, and noisy it is: 0 indicates lowest energy, and 1 indicates highest energy.
+6. explicit: a binary feature that describes whether a song is labeled as explicit or not: 1 = yes, 0 = no.
+7. id: the song/track's unique identifier.
+8. instrumentalness: a measure that describes the instrumentalness of a song. Values closer to 0 indicate songs have vocals, and values near 1 indicate songs have no vocals, or that they are effectively instrumental in nature.
+9. key: estimated overall key of the track. Integers map to pitches using standard Pitch Class notation: 0 = C, 1 = C♯/D♭, 2 = D, etc. The value is -1 is no key was detected in the song.
+10. liveness: detects a presence of an audience in the recording of the song/track.
+11. name: name of the song/track.
+12. 
 
 
 
