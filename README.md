@@ -110,7 +110,7 @@ Now, you're all set to explore the project!
 4. Most songs had a popularity of scores ranging from 0-40, so the bin sizes were made based on that: 0-35 as 'low', 36-100 as 'high'.
 ![rf_preprocessing1](https://github.com/user-attachments/assets/c6279bfc-833f-4c78-b7ea-6bc2c78d0e89)
 5. Then a distribution of the binned popularity scores was made.
-![rf_preprocessing1](https://github.com/user-attachments/assets/a16ab390-21b5-4a73-b6b4-d95a1b4193d3)
+![re_preprocessing2](https://github.com/user-attachments/assets/5de9e687-78f1-4239-a334-b828c8979151)
 6. Additional EDA was preformed: unnecessary columns were dropped.
 7. Train, test, split was done and X and y were defined. Then X_train and X_test were scaled, disregarding binary columns like explicit and mode and encoded columns such as Labelenc_genre.
 8. X and y dataframes were then saved as csv files for importing into the models folder, which contains the rf-model-xgboost.ipynb file.
