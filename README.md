@@ -115,6 +115,8 @@ Now, you're all set to explore the project!
 ---
 ### Modeling
 
+#### Random Forests Classification
+
 **Random Forests Classifer Boosted with XGBoost:**
 1. In this file, first the relevant libraries were imported.
 2. Then, the preprocessed data from imported from the preprocessing file in the data-analysis folder. SMOTE was initialized and applied to both X_train and y_train, and their respective distributions were checked to ensure equal proportions. The random forests classifier was then initialized, and an initial cross-validation model was run to check the CV score, which came out to be ~80%.
@@ -191,6 +193,28 @@ Overall, these metrics suggest that the model generalizes well and effectively a
 
 
 **RF (Boosted w/ XGBoost):**
+
+1. Employment of XGBoost and its results metrics are shown below:
+![image](https://github.com/user-attachments/assets/f6331af5-0a75-407f-aafb-68f6b4c5a498)
+  - Test Accuracy: 80.28%
+  - F1-score (high bin and low bin, respectively): 79%, 80%
+  - Recall (high bin and low bin, respectively): 80%, 80%
+  - AUC-ROC Score: 0.88
+
+Slight Improvement in Test Accuracy: The boosted RF model achieved a slightly better test accuracy (80.28%) compared to the initial Random Forest classifier (79.24%). This suggests that incorporating XGBoost helped fine-tune the model’s performance, resulting in a slight but meaningful improvement in accuracy.
+
+Consistent Recall and F1-Scores: The recall and F1-scores for both bins are very close to the original model’s values.
+
+Balanced Performance: The nearly equal performance across both high and low bins in terms of recall, precision, and F1-scores indicates that the model is well-balanced, with no clear bias towards either class.
+
+Conclusion:
+The XGBoosted Random Forest model slightly outperforms the standard Random Forest model and maintains a robust, balanced performance across both popularity bins. The AUC-ROC score of 0.88 reflects the model's excellent ability to distinguish between high and low popularity songs. These results suggest that tuning and incorporating boosting with XGBoost adds value to the model’s overall classification ability, providing a more powerful predictor for song popularity.
+
+--- 
+
+#### Time Series Forecasting of Top 4 Features: ARIMA/SARIMA 
+
+
 
 
 
