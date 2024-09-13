@@ -154,11 +154,45 @@ The following steps were conducted for LSTM forecast of the top 4 features:
 ---
 ### Results
 
-**Random Forests Classification Boosted with XGBoost:**
+**Random Forests Classification: Initial CV, RF (unboosted), RF (Boosted w/ XGBoost):**
 
-1. 
+**Initial CV:**
+1. Initial Cross Validation Scores were computed for comparing the performance of the random forests model:
+![image](https://github.com/user-attachments/assets/2db36cb5-427a-41a1-8609-d3e74b0f5430)
 
-     
+The average CV score ~80%. A tuned RF-XGBoosted model should perform as well or better than this score. 
+
+**RF (unboosted):**
+
+1. After setting the regularization parameters and running the first iteration of the random forests classifier (without XGBoost), the results were as follows:
+![image](https://github.com/user-attachments/assets/2753f9df-31bd-45d0-9c2f-852854cb7279)
+  - Train Accuracy (SMOTE resampled): 91.92%
+  - Test Accuracy: 79.24%
+  - F1-score (high bin and low bin, respectively): 78%, 80%
+  - Recall (high bin and low bin, respectively): 79%, 80%
+2. AUC-ROC Score was 0.88:
+  - The ROC curve and its associated AUC (area under the curve) plots the recall against the false positive rate; this is shown below.
+    ![image](https://github.com/user-attachments/assets/8545c361-091e-4504-b02b-9d672e82f52d)
+  - An AUC-ROC score of 0.88 means that the model has a high ability to distinguish between the high popularity bin and the low popularity bin class. A score closer to 1 indicates a perfect classifier and a score closer to 0.5 indicates a random guess; therefore, a score of 0.88 indicates that the model classifies very well.
+
+These results demonstrate a strong performance of the random forest model in classifying song popularity into two bins (high and low). The high train accuracy indicates that the model fits well to the resampled training data, suggesting effective learning. The application of SMOTE helped to mitigate the class imbalance, especially for the underrepresented bin, ensuring the model doesn't favor the majority class.
+
+However, the slight drop to 79.24% in test accuracy reflects a more realistic estimate of the model’s performance when applied to unseen data. This decrease could indicate slight overfitting to the training set, which is common when working with resampled data. The performance is still strong, but further tuning may reduce this gap.
+
+The F1-scores for both bins (78% for the high bin and 80% for the low bin) are relatively balanced, indicating that the model is capable of performing well on both classes without a significant bias towards one. F1-score is a good measure in this context because it balances precision and recall, which are both important when classifying in the presence of imbalanced data.
+
+The recall values for both bins (79% and 80%) demonstrate that the model is retrieving most of the relevant instances for both popularity categories, which is important when the cost of misclassification is high (e.g., misclassifying a popular song as unpopular).
+
+Overall, these metrics suggest that the model generalizes well and effectively addresses the class imbalance problem, with a robust trade-off between precision and recall across both classes.
+
+**What could these metrics mean when compared with the initial CV score of 80%?**
+- The CV Mean score of 80% provides an average estimate of model performance during k-fold cross-validation, meaning the model's ability to generalize has been tested on multiple, unseen validation sets.
+- And this aligns well with the test accuracy of 79.24% because it suggests that the model is performing consistently, and it gives confidence that the model is not overfitting too much and generalizes well to unseen data.
+
+
+**RF (Boosted w/ XGBoost):**
+
+
 
 
 
