@@ -26,7 +26,6 @@ This analysis can guide decisions on content creation, curation, and marketing s
   
 ---
 ### Installation
----
 
 To get started with this project, follow these steps:
 1. **Clone the repository:**
@@ -45,7 +44,6 @@ Now, you're all set to explore the project!
 
 ---
 ### Dataset, Data fetch, Spotify API Genre Fetch
----
 
 **Dataset Dictionary:**
 1. acousticness: a confidence measure from 0 to 1 how acoustic a song is, with 1 indicating that a song is highly acoustic.
@@ -68,10 +66,10 @@ Now, you're all set to explore the project!
 18. valence: measures the positivity described in a song/track, from  0 to 1.
 19. year: the year that the song/track was released.
 
----
+
 **Data Fetch:**
 1. In this file, the data was loaded, and some initial EDA was done to check for nulls, the range of the year feature for modularity of the time series implementation later, and some summary statistics. The cleaned file was saved as a csv for loading into the API-genre-fetch file.
----
+
 
 **Spotify API Genre Fetch:**
 1. There are two files in the data-fetching folder that relate to the API-genre fetch: 1 file that contains the code for your viewing/reusing, and 1 file that contains the output. The reason for two files is because when the code for fetching the genre information is run, the file becomes too large to view on github.
@@ -94,7 +92,6 @@ Now, you're all set to explore the project!
 
 --- 
 ### Exploratory Data Analysis and Model Preprocessing
----
 
 **Exploratory Data Analysis:**
 1. Initial EDA was performed to check for nulls. Then, a correlational matrix was made to look at which features are highly correlated with each other.
@@ -117,7 +114,7 @@ Now, you're all set to explore the project!
 
 ---
 ### Modeling
----
+
 **Random Forests Classifer Boosted with XGBoost:**
 1. In this file, first the relevant libraries were imported.
 2. Then, the preprocessed data from imported from the preprocessing file in the data-analysis folder. SMOTE was initialized and applied to both X_train and y_train, and their respective distributions were checked to ensure equal proportions. The random forests classifier was then initialized, and an initial cross-validation model was run to check the CV score, which came out to be ~80%.
@@ -130,12 +127,35 @@ Now, you're all set to explore the project!
 1. All relevant libraries were first imported.
 2. Helper functions were defined as follows: fit_model() (splits data into train, test and prints summary of SARIMA model), train_test() (data before 2000 was train, after 2000 was test), train_RMSE() (calculates the RMSE for the last 40 observations of the training set by comparing the actual values to the model predictions), test_RMSE() (calculates the RMSE for the model on the test data by iterating through the test set and making out-of-sample forecasts and compares the predictions to the actual values), and forecast_model() (fit a SARIMA model on the entire dataset and generates a forecast for the future and calculates the confidence intervals for the forecasted values).
 3. Unnecessary features were removed and a dataframe of the annaul averages of the top 4 features was generated to smoothen the data.
-4. Line graphs were plotted with year as the modularity, but normalization of the features was required -- this was achieved using MinMaxScaler()
-5. f
-6. f
-7. f
-8. f
-9. Then, these steps were followed for each feature's forecast: plot the line
+4. Line graphs were plotted with year as the modularity, but normalization of the features was required -- this was achieved using MinMaxScaler() and then the features' line plots were plotted.
+![image](https://github.com/user-attachments/assets/dfb1b25d-b920-483f-b632-359273892e68)
+6. Then, individual dataframes were created and ADF test was performed to determine if the time series is stationary or not; it was concluded that the time sereis was non-stationary.
+7. Then, the following steps were performed to create the SARIMA model for each top feature:
+   - Use the auto-arima funciton to find the best non-seasonal and seasonal parameters to fit the model for each feature
+   - Use the results of the auto-arima function to fit the SARIMA model and get results
+   - Compute the train and test RMSE values using the aforementioned helper functions
+   - Forecast the model with a 95% confidence interval for the next 10 years, and calculate the expected increase in prevalence for the 1st, 3rd, 5th, 7th, and 9th years to understand the relative increase across the decade.
+9. Detailed results of the model are discussed in the results section of this read me file.
+
+**Time Series Forecasting of Top 4 Features: LSTM**
+The following steps were conducted for LSTM forecast of the top 4 features:
+   - First, individual dataframes were created for each feature with the year feature set as the index.
+   - Line plots were generated. (Example of Acousticness is shown below)
+     ![image](https://github.com/user-attachments/assets/6b07e165-873d-412d-a4fa-2eebf234025e)
+   - Features were normalized using MinMaxScaler() and a function was defined to build sequences from the normalized data for LSTM training.
+   - Time step was defined as 10 for acousticness and explicit, and 5 for loudness and labelenc_genre.
+   - Data was split into train and test sets.
+   - Model layers were added with a dense layer with linear activation for regression output and then the model was compiled and optimized with Adam and the loss function was mean_squared_error.
+   - The model was trained on 100 epochs for acousticness, and 40 epochs for explicit, loudness, and labelenc_genre.
+   - A plot of the train and validation loss was generated.
+   - A plot of true vs predicited values was generated for both train and test sets.
+   - A plot of historical, true values, and prediction values was generation for seeing how accurate the forecast was.
+
+
+
+     
+
+
 
 
 
