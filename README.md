@@ -12,6 +12,7 @@ The project utilizes both statistical models (ARIMA/SARIMA) and deep learning mo
 This analysis can guide decisions on content creation, curation, and marketing strategies by identifying which features are likely to grow in popularity in the coming years.
 
 ---
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Installation](#installation)
@@ -22,8 +23,11 @@ This analysis can guide decisions on content creation, curation, and marketing s
 - [How to Use](#how-to-use)
 - [Contributing](#contributing)
 - [License](#licensing)
+  
 ---
 ### Installation
+---
+
 To get started with this project, follow these steps:
 1. **Clone the repository:**
    '''bash
@@ -41,6 +45,7 @@ Now, you're all set to explore the project!
 
 ---
 ### Dataset, Data fetch, Spotify API Genre Fetch
+---
 
 **Dataset Dictionary:**
 1. acousticness: a confidence measure from 0 to 1 how acoustic a song is, with 1 indicating that a song is highly acoustic.
@@ -64,10 +69,8 @@ Now, you're all set to explore the project!
 19. year: the year that the song/track was released.
 
 ---
-
 **Data Fetch:**
 1. In this file, the data was loaded, and some initial EDA was done to check for nulls, the range of the year feature for modularity of the time series implementation later, and some summary statistics. The cleaned file was saved as a csv for loading into the API-genre-fetch file.
-
 ---
 
 **Spotify API Genre Fetch:**
@@ -90,6 +93,31 @@ Now, you're all set to explore the project!
 9. Save the file for EDA!
 
 --- 
+### Exploratory Data Analysis and Model Preprocessing
+---
+
+**Exploratory Data Analysis:**
+1. Initial EDA was performed to check for nulls. Then, a correlational matrix was made to look at which features are highly correlated with each other.
+2. Then, a mapping function that categorizes genres into broader genres (like indie-pop, alternative-pop being categorized as just pop) was defined.
+3. Since multiple genres were fetched for each song, the mode of a list of genres was chosen as the genre for that song, and if only genre was present, that one was chosen as the genre for that song.
+4. Some None values were still present in the genre column and were replaced by 'unknown'.
+5. Then a brief statistical analysis of unknown vs known genres was conducted to determine if dropping of unknown genres was appropriate, which it is was not, so the final cleaned dataframe was stored for a Random Forests (boosted with XGBoost) model.
+
+**Model Preprocessing:**
+1. In this file, the saved dataframe from the EDA file was imported.
+2. Then genre feature was label encoded for classification of the popularity feature. The goal was to determine which top features most correctly classify popularity.
+3. A distribution of popularity scores was made to determine the appropriate bin size for the classification model.
+4. Most songs had a popularity of scores ranging from 0-40, so the bin sizes were made based on that: 0-35 as 'low', 36-100 as 'high'.
+![rf_preprocessing1](https://github.com/user-attachments/assets/c6279bfc-833f-4c78-b7ea-6bc2c78d0e89)
+5. Then a distribution of the binned popularity scores was made.
+![rf_preprocessing1](https://github.com/user-attachments/assets/a16ab390-21b5-4a73-b6b4-d95a1b4193d3)
+6. Additional EDA was preformed: unnecessary columns were dropped.
+7. Train, test, split was done and X and y were defined. Then X_train and X_test were scaled, disregarding binary columns like explicit and mode and encoded columns such as Labelenc_genre.
+8. X and y dataframes were then saved as csv files for importing into the models folder, which contains the rf-model-xgboost.ipynb file.
+
+---
+### Modeling
+---
 
 
 
