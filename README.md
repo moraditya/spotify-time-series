@@ -151,7 +151,11 @@ The following steps were conducted for LSTM forecast of the top 4 features:
    - A plot of true vs predicited values was generated for both train and test sets.
    - A plot of historical, true values, and prediction values was generation for seeing how accurate the forecast was.
 
+---
+### Results
 
+**Random Forests Classification Boosted with XGBoost:**
+1. 
 
      
 
