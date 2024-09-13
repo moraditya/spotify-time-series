@@ -118,6 +118,20 @@ Now, you're all set to explore the project!
 ---
 ### Modeling
 ---
+**Random Forests Classifer Boosted with XGBoost:**
+1. In this file, first the relevant libraries were imported.
+2. Then, the preprocessed data from imported from the preprocessing file in the data-analysis folder. SMOTE was initialized and applied to both X_train and y_train, and their respective distributions were checked to ensure equal proportions. The random forests classifier was then initialized, and an initial cross-validation model was run to check the CV score, which came out to be ~80%.
+3. Appropriate regularization parameters were employed to the rf_clf and the model was then fit on the SMOTE-resampled training data.
+4. Results after implementation of XGBoost raised test accuracy to 80.28%, but a more in depth analysis of the results of rf classification can be found in the results section of this read me document.
+5. Top 6 features were extracted, and of the top 6, the top 4 were selected for time series forecasting.
+![image](https://github.com/user-attachments/assets/b2aa9247-29db-402c-a86a-22f4690bb4a6)
+
+**Time Series Forecasting of Top 4 Features: ARIMA/SARIMA**
+1. All relevant libraries were first imported.
+2. Helper functions were defined as follows:
+   a. fit_model
+   b. 
+
 
 
 
