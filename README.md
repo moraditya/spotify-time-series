@@ -128,9 +128,14 @@ Now, you're all set to explore the project!
 
 **Time Series Forecasting of Top 4 Features: ARIMA/SARIMA**
 1. All relevant libraries were first imported.
-2. Helper functions were defined as follows:
-   a. fit_model
-   b. 
+2. Helper functions were defined as follows: fit_model() (splits data into train, test and prints summary of SARIMA model), train_test() (data before 2000 was train, after 2000 was test), train_RMSE() (calculates the RMSE for the last 40 observations of the training set by comparing the actual values to the model predictions), test_RMSE() (calculates the RMSE for the model on the test data by iterating through the test set and making out-of-sample forecasts and compares the predictions to the actual values), and forecast_model() (fit a SARIMA model on the entire dataset and generates a forecast for the future and calculates the confidence intervals for the forecasted values).
+3. Unnecessary features were removed and a dataframe of the annaul averages of the top 4 features was generated to smoothen the data.
+4. Line graphs were plotted with year as the modularity, but normalization of the features was required -- this was achieved using MinMaxScaler()
+5. f
+6. f
+7. f
+8. f
+9. Then, these steps were followed for each feature's forecast: plot the line
 
 
 
