@@ -20,8 +20,6 @@ This analysis can guide decisions on content creation, curation, and marketing s
 - [Exploratory Data Analysis and Model Preprocessing](#exploratory-data-analysis-and-model-preprocessing)
 - [Modeling](#modeling)
 - [Results](#results)
-- [How to Use](#how-to-use)
-- [Contributing](#contributing)
 - [License](#licensing)
   
 ---
@@ -449,6 +447,12 @@ Acousticness is forecasted to see minimal growth, remaining a niche area in the 
 Overall, the ARIMA/SARIMA models performed slightly better at capturing long-term trends, while the LSTM models showed promise but tended to smooth predictions for volatile features. The final conclusion is that explicit and loud music will dominate future trends, while acoustic music will see limited growth. Genre diversity will continue to be relevant but not as influential as the other features.
 
 These predictions can help music executives and labels strategize by focusing on explicit, high-energy content while identifying potential niche opportunities in acoustic music. Both models demonstrate the value of predictive modeling in understanding and anticipating changes in the music landscape.
+
+--- 
+
+## Licence
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 
 
 
