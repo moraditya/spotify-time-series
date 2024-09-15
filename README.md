@@ -2,7 +2,7 @@
 **by Aditya Mor**
 ---
 
-### Project Overview
+## Project Overview
 This project analyzes the key features that influence song popularity in the music industry, using historical data from Spotify, spanning from 1921 to 2020. The dataset includes approximately 170,000 songs with various attributes, ranging from quantifiable features like acousticness, duration, and loudness, to characteristics such as energy, valence, and a popularity score. The goal of this project is twofold: first, to identify the top 4 features that most strongly influence a song’s popularity, and second, to forecast their trends over the next 5-10 years. These insights will help music producers, labels, and streaming platforms make informed decisions about emerging music trends.
 
 To achieve this, I began by cleaning the dataset and enriching it with genre information, which I obtained using Spotify’s API to fetch genre details based on artist names. After performing exploratory data analysis (EDA), a Random Forest model, boosted with XGBoost, was used to identify the top 4 features that best classify a song’s popularity. These features were then subjected to time series forecasting to predict how they will evolve, providing industry stakeholders with insights into potential future trends.
@@ -25,7 +25,7 @@ This analysis can guide decisions on content creation, curation, and marketing s
 - [License](#licensing)
   
 ---
-### Installation
+## Installation
 
 To get started with this project, follow these steps:
 1. **Clone the repository:**
@@ -43,7 +43,7 @@ To get started with this project, follow these steps:
 Now, you're all set to explore the project!
 
 ---
-### Dataset, Data fetch, Spotify API Genre Fetch
+## Dataset, Data fetch, Spotify API Genre Fetch
 
 **Dataset Dictionary:**
 1. acousticness: a confidence measure from 0 to 1 how acoustic a song is, with 1 indicating that a song is highly acoustic.
@@ -91,7 +91,7 @@ Now, you're all set to explore the project!
 9. Save the file for EDA!
 
 --- 
-### Exploratory Data Analysis and Model Preprocessing
+## Exploratory Data Analysis and Model Preprocessing
 
 **Exploratory Data Analysis:**
 1. Initial EDA was performed to check for nulls. Then, a correlational matrix was made to look at which features are highly correlated with each other.
@@ -113,17 +113,19 @@ Now, you're all set to explore the project!
 8. X and y dataframes were then saved as csv files for importing into the models folder, which contains the rf-model-xgboost.ipynb file.
 
 ---
-### Modeling
+## Modeling
 
-#### Random Forests Classification
+### Random Forests Classification
 
-**Random Forests Classifer Boosted with XGBoost:**
+**Random Forests Classifer:**
 1. In this file, first the relevant libraries were imported.
 2. Then, the preprocessed data from imported from the preprocessing file in the data-analysis folder. SMOTE was initialized and applied to both X_train and y_train, and their respective distributions were checked to ensure equal proportions. The random forests classifier was then initialized, and an initial cross-validation model was run to check the CV score, which came out to be ~80%.
 3. Appropriate regularization parameters were employed to the rf_clf and the model was then fit on the SMOTE-resampled training data.
 4. Results after implementation of XGBoost raised test accuracy to 80.28%, but a more in depth analysis of the results of rf classification can be found in the results section of this read me document.
 5. Top 6 features were extracted, and of the top 6, the top 4 were selected for time series forecasting.
 ![image](https://github.com/user-attachments/assets/b2aa9247-29db-402c-a86a-22f4690bb4a6)
+
+### Time Series Forecasting
 
 **Time Series Forecasting of Top 4 Features: ARIMA/SARIMA**
 1. All relevant libraries were first imported.
@@ -154,7 +156,9 @@ The following steps were conducted for LSTM forecast of the top 4 features:
    - A plot of historical, true values, and prediction values was generation for seeing how accurate the forecast was.
 
 ---
-### Results
+## Results
+
+### Random Forests Classification
 
 **Random Forests Classification: Initial CV, RF (unboosted), RF (Boosted w/ XGBoost):**
 
@@ -210,11 +214,27 @@ Balanced Performance: The nearly equal performance across both high and low bins
 Conclusion:
 The XGBoosted Random Forest model slightly outperforms the standard Random Forest model and maintains a robust, balanced performance across both popularity bins. The AUC-ROC score of 0.88 reflects the model's excellent ability to distinguish between high and low popularity songs. These results suggest that tuning and incorporating boosting with XGBoost adds value to the model’s overall classification ability, providing a more powerful predictor for song popularity.
 
---- 
+### Time Series Forecasting
 
-#### Time Series Forecasting of Top 4 Features: ARIMA/SARIMA 
+**Time Series Forecasting of Top 4 Features: ARIMA/SARIMA:**
+1. In this file, the features were first visualized without normalization and then with normalization to see their movements through time before breaking each feature down into a time series.
+![image](https://github.com/user-attachments/assets/ab3033fc-e2d6-4aaa-a6d2-be4479f8e02b)
+2. Shown below are the time series results of each individual feature and its respective analysis:
+
+### Acousticness SARIMA:
+- Auto-arima parameters:
+![image](https://github.com/user-attachments/assets/fd5bce7d-9ee7-4217-b446-e5b6124f4a13)
+- Fitting the best model parameters into SARIMA:
+![image](https://github.com/user-attachments/assets/60257ea1-3b47-4e2c-b590-8746eb672ee7)
+- Train RMSE:
+  Value: 0.05358
+![image](https://github.com/user-attachments/assets/81cc4355-2af0-48e6-ae9c-264f5c3ddd35)
 
 
+
+
+**Time Series Forecasting of Top 4 Features: LSTM:**
+1. 
 
 
 
