@@ -221,7 +221,7 @@ The XGBoosted Random Forest model slightly outperforms the standard Random Fores
 ![image](https://github.com/user-attachments/assets/ab3033fc-e2d6-4aaa-a6d2-be4479f8e02b)
 2. Shown below are the time series results of each individual feature and its respective analysis:
 
-### Acousticness SARIMA:
+### Acousticness Prevalence:
 - Auto-arima parameters:
 ![image](https://github.com/user-attachments/assets/fd5bce7d-9ee7-4217-b446-e5b6124f4a13)
 - Fitting the best model parameters into SARIMA:
@@ -229,12 +229,79 @@ The XGBoosted Random Forest model slightly outperforms the standard Random Fores
 - Train RMSE:
   Value: 0.05358
 ![image](https://github.com/user-attachments/assets/81cc4355-2af0-48e6-ae9c-264f5c3ddd35)
+- Test RMSE:
+  Value: 0.02066
+![image](https://github.com/user-attachments/assets/739355cc-6472-4145-a590-7c269406857e)
+- Total Expected Increase in Prevalence:
+![image](https://github.com/user-attachments/assets/8e3767a6-9fc9-4476-b535-19766701ef7e)
 
+### Explicit Prevalence:
+- Auto-arima parameters:
+![image](https://github.com/user-attachments/assets/9cb2fd21-fa5d-401e-b31f-b7d220eceaf5)
+- Fitting the best model parameters into SARIMA:
+![image](https://github.com/user-attachments/assets/18b064ba-11a2-46ff-93d5-0f51b6dc69a6)
+- Train RMSE:
+  Value: 0.05890
+![image](https://github.com/user-attachments/assets/d7375a61-d2da-4ec7-ba02-1c89d014171e)
+- Test RMSE:
+  Value: 0.13249
+![image](https://github.com/user-attachments/assets/6cae5ede-60ee-4942-a0f2-2f1a42335708)
+- Total Expected Increase in Prevalence:
+![image](https://github.com/user-attachments/assets/6cf3d655-7628-4ae8-a254-7f622f9b12c0)
 
+### Loudness Prevalence:
+- Auto-arima parameters:
+![image](https://github.com/user-attachments/assets/c6e5c6c1-322a-4566-9166-f9c60998ddc5)
+- Fitting the best model parameters into SARIMA:
+![image](https://github.com/user-attachments/assets/ba1b3860-a119-487d-9a79-ed2058053bfa)
+- Train RMSE:
+  Value: 0.04879
+![image](https://github.com/user-attachments/assets/00ae9a20-b361-47f7-94a8-f1cefa255814)
+- Test RMSE:
+  Value: 0.04779
+![image](https://github.com/user-attachments/assets/f4d79f94-0112-4f32-8a8f-02625a5e2371)
+- Total Expected Increase in Prevalence:
+![image](https://github.com/user-attachments/assets/39d397d6-edc5-4342-80f8-38bbe3cc0d8c)
 
+### Label Encoded Genre Prevalence:
+- Auto-arima parameters:
+![image](https://github.com/user-attachments/assets/511ff2ff-0f62-415a-9cd9-aa84fbfb8b54)
+- Fitting the best model parameters into SARIMA:
+![image](https://github.com/user-attachments/assets/b8daa6d9-cf62-4057-a595-a271e1713582)
+- Train RMSE:
+  Value: 0.07149
+![image](https://github.com/user-attachments/assets/1434f65a-4a15-4573-be77-46fd0a632a08)
+- Test RMSE:
+  Value: 0.03821
+![image](https://github.com/user-attachments/assets/656726a1-1895-4af3-bb72-b2ac8a44187b)
+- Total Expected Increase in Prevalence:
+![image](https://github.com/user-attachments/assets/a6bd5d81-63ae-4609-b5df-5fc75647679c)
+
+### Top 4 Features Increase in Prevalence:
+![image](https://github.com/user-attachments/assets/f7c5bb25-8454-4479-aa25-5f33e082500c)
+
+**Conclusion:** 
+
+Strategic Insights for Future Music Trends Based on Forecasting Results
+Based on our time series analysis and forecasting, it's evident that Loudness and Explicit content are poised for substantial growth in the coming years, with respective increases of 558.75% and 641.30% over the next 9 years. This suggests a significant shift towards more intense, high-energy, and explicit tracks dominating the industry, likely reflecting changing consumer preferences and the evolution of popular music.
+
+For music executives or labels focused on following market trends, this data is pivotal. Prioritizing artists and genres that emphasize loudness and explicit content may provide a competitive advantage, as these attributes are projected to resonate more with future audiences. If you're looking to sign or promote artists that align with rising trends, these two features should be at the forefront of your considerations.
+
+However, Labelenc_genre, which represents genre diversity and classification, shows a moderate increase of 50.79%. This implies that genre variety will still play an important role, although not as sharply as the intensity or explicitness of music. Labels should continue to support genre experimentation but with an understanding that it may not outpace the growth of other, more aggressive features.
+
+On the other hand, Acousticness, which relates to more natural, less electronic music, is projected to see only a modest increase of 2.023% over the next 9 years. While it may appear that acoustic music won't be a major trend, this low growth forecast presents a unique opportunity for labels and artists who want to break away from the mainstream. With the music industry leaning heavily towards louder, more explicit content, investing in acoustic or more stripped-back styles could provide a way to stand out in a crowded market.
+
+In conclusion, the time series model clearly indicates that Loudness and Explicit content will dominate future music trends. For executives looking to ride the wave of popularity, focusing on these features is key. However, for those aiming to disrupt the industry with a fresh perspective, the low but steady rise in acoustic music offers a niche, yet impactful opportunity to create a distinct identity and capture an audience seeking authenticity and emotional depth in their music experience.
+
+This analysis provides an invaluable use case for predictive modeling in the music industry and highlights the balance between following trends and disrupting the market. This level of insight can be directly utilized in strategic planning, artist selection, and long-term content creation.
 
 **Time Series Forecasting of Top 4 Features: LSTM:**
-1. 
+1. True values vs Predicted Values for each of the top features is shown below:
+
+Acousticness:
+![image](https://github.com/user-attachments/assets/1823dea2-80dc-4674-bd78-57a706f644c2)
+![image](https://github.com/user-attachments/assets/1c772717-60ad-43b0-85e7-9bebebf3543b)
+
 
 
 
