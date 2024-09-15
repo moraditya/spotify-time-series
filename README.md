@@ -297,16 +297,38 @@ This analysis provides an invaluable use case for predictive modeling in the mus
 
 **Time Series Forecasting of Top 4 Features: LSTM:**
 1. True values vs Predicted Values for each of the top features is shown below:
+**Acousticness:**
 
-Acousticness:
 ![image](https://github.com/user-attachments/assets/1823dea2-80dc-4674-bd78-57a706f644c2)
+
 ![image](https://github.com/user-attachments/assets/1c772717-60ad-43b0-85e7-9bebebf3543b)
 
+![image](https://github.com/user-attachments/assets/1f86d5c3-3b17-4ddc-84b2-a157cd8bfbb7)
+
+**Explicit:**
+
+![image](https://github.com/user-attachments/assets/aff6e585-0324-491e-b35a-1b1e639fe1b0)
+
+![image](https://github.com/user-attachments/assets/fe01d8f3-07eb-4248-9f84-a2ab525fab32)
+
+![image](https://github.com/user-attachments/assets/eefe613d-2bc5-472a-bc05-77cbbbfbc75f)
 
 
+**Loudness:**
 
+![image](https://github.com/user-attachments/assets/6789867f-b10b-4f3a-b8f4-52fd6d83cbb3)
 
+![image](https://github.com/user-attachments/assets/e12b38a9-3e76-4e1d-a3c0-64c49cfcff1f)
 
+![image](https://github.com/user-attachments/assets/2476ed9e-0343-41a4-8879-04a5e397e22a)
+
+**Genres:**
+
+![image](https://github.com/user-attachments/assets/14d0c437-aaa1-426d-b30a-a660d581fe2d)
+
+![image](https://github.com/user-attachments/assets/6f53fe0e-2c83-4601-918e-99f3f3cbb751)
+
+![image](https://github.com/user-attachments/assets/c94a9a71-b163-4ccc-b779-8b4bd4f3b0a0)
 
 
 
