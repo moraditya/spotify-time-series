@@ -280,20 +280,66 @@ The XGBoosted Random Forest model slightly outperforms the standard Random Fores
 ### Top 4 Features Increase in Prevalence:
 ![image](https://github.com/user-attachments/assets/f7c5bb25-8454-4479-aa25-5f33e082500c)
 
-**Conclusion:** 
+### Based on our ARIMA/SARIMA time series forecasting model, the projected changes over the next 9 years for various features are as follows:
 
-Strategic Insights for Future Music Trends Based on Forecasting Results
-Based on our time series analysis and forecasting, it's evident that Loudness and Explicit content are poised for substantial growth in the coming years, with respective increases of 558.75% and 641.30% over the next 9 years. This suggests a significant shift towards more intense, high-energy, and explicit tracks dominating the industry, likely reflecting changing consumer preferences and the evolution of popular music.
+Explicit: 641.30% Increase over 9 Years
+Loudness: 558.75% Increase over 9 Years
+Labelenc_genre: 50.79% Increase over 9 Years
+Acousticness: 2.023% Increase over 9 Years
 
-For music executives or labels focused on following market trends, this data is pivotal. Prioritizing artists and genres that emphasize loudness and explicit content may provide a competitive advantage, as these attributes are projected to resonate more with future audiences. If you're looking to sign or promote artists that align with rising trends, these two features should be at the forefront of your considerations.
+**Strategic Insights for Future Music Trends**
+The analysis of future trends reveals significant shifts that could be crucial for the music industry.
 
-However, Labelenc_genre, which represents genre diversity and classification, shows a moderate increase of 50.79%. This implies that genre variety will still play an important role, although not as sharply as the intensity or explicitness of music. Labels should continue to support genre experimentation but with an understanding that it may not outpace the growth of other, more aggressive features.
+Explicit Content (641.30% Increase):
+This explosive increase in explicit content implies that listeners are likely to prefer music with more direct and unfiltered expression. This aligns with the ongoing trend of more bold and authentic lyrical content in popular music.
 
-On the other hand, Acousticness, which relates to more natural, less electronic music, is projected to see only a modest increase of 2.023% over the next 9 years. While it may appear that acoustic music won't be a major trend, this low growth forecast presents a unique opportunity for labels and artists who want to break away from the mainstream. With the music industry leaning heavily towards louder, more explicit content, investing in acoustic or more stripped-back styles could provide a way to stand out in a crowded market.
+Strategic Recommendation:
+Music executives should prioritize artists and genres that embrace explicitness, as this will likely resonate more with future audiences. This could also signal a shift in cultural attitudes towards openness in media consumption.
 
-In conclusion, the time series model clearly indicates that Loudness and Explicit content will dominate future music trends. For executives looking to ride the wave of popularity, focusing on these features is key. However, for those aiming to disrupt the industry with a fresh perspective, the low but steady rise in acoustic music offers a niche, yet impactful opportunity to create a distinct identity and capture an audience seeking authenticity and emotional depth in their music experience.
+Loudness (558.75% Increase):
+Loudness reflects the intensity and energy of the music. The sharp increase suggests that future music will favor higher-energy tracks, possibly driven by younger audiences and the dominance of streaming platforms that favor engaging, high-volume tracks.
 
-This analysis provides an invaluable use case for predictive modeling in the music industry and highlights the balance between following trends and disrupting the market. This level of insight can be directly utilized in strategic planning, artist selection, and long-term content creation.
+Strategic Recommendation:
+Labels should focus on high-energy tracks and artists that emphasize loud, dynamic production. This could be crucial for success in environments where energetic music dominates playlists and social media platforms.
+
+Labelenc_genre (50.79% Increase):
+While genre diversity is projected to grow more moderately than explicit content or loudness, it remains an important factor. The increase of 50.79% implies that genre diversity will still play a significant role in the industry, although it won't grow as rapidly.
+
+Strategic Recommendation:
+Continue to support artists who experiment with genres but with a clear understanding that genre-blending and crossover styles may not drive the industry's future as much as energy and explicitness.
+
+Acousticness (2.023% Increase):
+Acoustic music is expected to see only a modest growth of 2.023%, indicating that more natural and stripped-back music styles will not be the leading trend. However, this could be an opportunity for artists and labels to differentiate themselves in a highly competitive market dominated by louder and more explicit content.
+
+Strategic Recommendation:
+For artists or labels looking to stand out, investing in acoustic music could be a niche yet impactful opportunity, providing an avenue to capture audiences seeking authenticity and emotional depth in an otherwise high-energy landscape.
+
+Visual Comparison
+The following graphs compare the Actual Train Data vs. Predicted Prevalence for key features:
+
+Acousticness: Shows a clear decline in prevalence over time, with the model predicting a steady but very modest increase in the future, matching the 2.023% growth forecast.
+
+Explicit Content: Displays a clear trend of exponential growth, consistent with the model's forecast of a 641.30% increase. The model fits this trend well and predicts further upward growth in explicit tracks.
+
+Loudness: The model predicts a steady rise in loudness, with a near-perfect fit between actual and predicted values, supporting the forecasted 558.75% increase.
+
+Labelenc_genre: Genre diversity has fluctuated over time, but the model predicts steady growth moving forward, aligning with the 50.79% increase forecast.
+
+RMSE Performance
+To measure model performance, RMSE (Root Mean Squared Error) was calculated for both the train and test data across all features:
+
+Acousticness: Train RMSE: 0.05358, Test RMSE: 0.02066
+Explicit Content: Train RMSE: 0.05890, Test RMSE: 0.13249
+Loudness: Train RMSE: 0.04879, Test RMSE: 0.04779
+Labelenc_genre: Train RMSE: 0.07149, Test RMSE: 0.03821
+These RMSE values indicate the predictive accuracy of the model. Lower test RMSE values suggest that the model performed well in predicting future trends, particularly for Loudness and Acousticness, which show closely matching train and test RMSE scores.
+
+Conclusion
+The time series forecasting analysis reveals that Loudness and Explicit Content are set to dominate future music trends, with substantial growth projected over the next 9 years. For music executives and labels, these insights highlight the importance of prioritizing high-energy, explicit tracks in order to stay ahead of consumer demand.
+
+At the same time, genre diversity remains relevant, although it will grow at a slower pace. Acoustic music, while not a major trend, presents a unique opportunity for differentiation in a crowded market.
+
+This analysis showcases the power of predictive modeling in the music industry, providing actionable insights for strategic planning, artist selection, and long-term content creation.
 
 **Time Series Forecasting of Top 4 Features: LSTM:**
 1. True values vs Predicted Values for each of the top features is shown below:
@@ -331,6 +377,78 @@ This analysis provides an invaluable use case for predictive modeling in the mus
 
 ![image](https://github.com/user-attachments/assets/c94a9a71-b163-4ccc-b779-8b4bd4f3b0a0)
 
+## Comparison of ARIMA/SARIMA vs. LSTM:
+
+### Acousticness:
+
+LSTM Model:
+
+The LSTM model displayed decent performance on the train set but struggled with the test set, where the model flattened out its predictions. This shows that LSTM may have had difficulty capturing the sharp fluctuations in acousticness over time.
+The predictions suggest that acousticness may remain fairly static in the future.
+
+ARIMA/SARIMA:
+
+The ARIMA model, which had a forecasted growth of 2.023% over nine years, provided better alignment with actual historical data but also forecasted a minimal increase in acousticness, supporting the idea that acoustic music will not see a major resurgence in the future.
+
+Conclusion:
+
+Both models indicate a minimal growth trend for acousticness, with LSTM showing difficulty in capturing complex patterns and ARIMA/SARIMA showing a modest but steady prediction. This aligns with the industry shift away from acoustic music, making it a niche area moving forward.
+
+### Explicit 
+
+LSTM Model:
+
+The LSTM model showed strong performance in predicting explicit content on the train set, capturing the sharp rise in the number of explicit songs over time. However, on the test set, the model tended to smooth the predicted curve, underestimating the sharp peaks in explicit song counts.
+
+ARIMA/SARIMA:
+
+The ARIMA model predicted a substantial increase of 641.30% over the next nine years, closely aligning with historical trends. The ARIMA model captured the exponential growth better than the LSTM model.
+
+Conclusion:
+
+Both models agree on the rapid growth of explicit content in music. ARIMA/SARIMA, however, provided a more accurate reflection of the explosive trend, while LSTM slightly underestimated it. The focus on explicit music is likely to continue dominating the industry as predicted.
+
+### Loudness:
+
+LSTM Model:
+
+The LSTM model performed well on both the train and test sets for loudness, showing strong alignment between the true and predicted values. It was able to capture the overall upward trend in loudness, although it showed some smoothing during test predictions.
+
+ARIMA/SARIMA:
+
+The ARIMA model predicted a significant 558.75% increase in loudness over the next nine years, closely matching the historical upward trajectory of loudness in music.
+
+Conclusion:
+
+Both models performed well in capturing the rise in loudness, with ARIMA/SARIMA showing a slight edge in predicting the more substantial long-term increase. The industry is likely to continue favoring high-energy, louder music moving forward.
+
+### Genres (Label Encoded):
+
+LSTM Model:
+
+The LSTM model performed reasonably well on the train set for genres but, similar to other features, showed some smoothing on the test set, where it underestimated the volatility in genre prevalence. However, it still managed to reflect general trends.
+
+ARIMA/SARIMA:
+
+The ARIMA model predicted a 50.79% increase in genre diversity, capturing the fluctuations and providing a moderate outlook on genre prevalence over time.
+
+Conclusion:
+
+While both models showed the continued importance of genre diversity, the growth will be moderate compared to other features. Genre variety will remain important, but explicit content and loudness will likely outpace it in driving future trends.
+
+## Final Conclusion:
+
+The results of both the ARIMA/SARIMA and LSTM models provide valuable insights into the future of music trends:
+
+Explicit Content is expected to dominate the industry with the largest projected increase, signaling a shift towards more bold, uncensored music.
+
+Loudness will continue to rise, reflecting the demand for high-energy tracks.
+Genre Diversity will grow moderately but will not drive the industry as strongly as explicit content or loudness.
+
+Acousticness is forecasted to see minimal growth, remaining a niche area in the future.
+Overall, the ARIMA/SARIMA models performed slightly better at capturing long-term trends, while the LSTM models showed promise but tended to smooth predictions for volatile features. The final conclusion is that explicit and loud music will dominate future trends, while acoustic music will see limited growth. Genre diversity will continue to be relevant but not as influential as the other features.
+
+These predictions can help music executives and labels strategize by focusing on explicit, high-energy content while identifying potential niche opportunities in acoustic music. Both models demonstrate the value of predictive modeling in understanding and anticipating changes in the music landscape.
 
 
 
