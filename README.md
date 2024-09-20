@@ -20,7 +20,7 @@ This analysis can guide decisions on content creation, curation, and marketing s
 - [Exploratory Data Analysis and Model Preprocessing](#exploratory-data-analysis-and-model-preprocessing)
 - [Modeling](#modeling)
 - [Results](#results)
-- [License](#licensing)
+- [License](#license)
   
 ---
 ## Installation
